@@ -3,6 +3,7 @@ package hu.jgj52.huTiersChatVelocity;
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.Subscribe;
+import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
@@ -17,7 +18,7 @@ import org.slf4j.Logger;
 import java.util.Optional;
 import java.util.UUID;
 
-@Plugin(id = "hutiers-chat_velocity", name = "HuTiers-Chat Velocity", version = "1.1", authors = {"JGJ52"})
+@Plugin(id = "hutiers-chat_velocity", name = "HuTiers-Chat Velocity", version = "1.2", authors = {"JGJ52"}, dependencies = {@Dependency(id = "hutiers-messenger_velocity")})
 public class HuTiersChatVelocity {
 
     private final ProxyServer server;
