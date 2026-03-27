@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import java.util.Optional;
 import java.util.UUID;
 
-@Plugin(id = "hutiers-chat_velocity", name = "HuTiers-Chat Velocity", version = "1.2", authors = {"JGJ52"}, dependencies = {@Dependency(id = "hutiers-messenger_velocity")})
+@Plugin(id = "hutiers-chat_velocity", name = "HuTiers-Chat Velocity", version = "1.3", authors = {"JGJ52"}, dependencies = {@Dependency(id = "hutiers-messenger_velocity")})
 public class HuTiersChatVelocity {
 
     private final ProxyServer server;
@@ -44,7 +44,7 @@ public class HuTiersChatVelocity {
             User user = luckPerms.getUserManager().getUser(player.getUniqueId());
             if (user == null) return;
             CachedMetaData metaData = user.getCachedData().getMetaData();
-            String name = (metaData.getPrefix() != null ? metaData.getPrefix() : "") + player.getUsername() + (metaData.getSuffix() != null ? metaData.getSuffix() : "");
+            String name = (metaData.getPrefix() != null ? metaData.getPrefix() : "").replaceAll("&", "§") + player.getUsername() + (metaData.getSuffix() != null ? metaData.getSuffix() : "").replaceAll("&", "§");
             for (Player p : server.getAllPlayers()) {
                 p.sendMessage(Component.text(name + ": " + msg));
             }
